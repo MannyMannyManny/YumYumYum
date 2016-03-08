@@ -30,8 +30,8 @@ class DashboardController extends Controller
 	    //Shares
 	    $shares = new Shares;
 	    $last = array();
-	    $providers = array('fb','tw','in','gp');
-	    $s=1;
+	    $providers = array('fb','tw','ln','gp');
+	    $s=0;
 	    while($s<12) {
 	        $started = $dt->copy();
 	        //If first share was not in full hour
@@ -65,14 +65,14 @@ class DashboardController extends Controller
             }
             $o++;
         }
-        $json['color'] = array("#4c4ca6", "#7ac675","#fff5a2", "#c0362c");
+        $json['color'] = array("#3B5998", "#55ACEE","#313335", "#D34836");
         $data = array(
             'gg' => json_encode($json),
             'total_shares' => $shares->count(),
             'current_time' => Carbon::now(),
             'fb_shares' => $shares->where('type', '=', 'fb')->count(),
             'tw_shares' => $shares->where('type', '=', 'tw')->count(),
-            'ln_shares' => $shares->where('type', '=', 'in')->count(),
+            'ln_shares' => $shares->where('type', '=', 'ln')->count(),
             'gp_shares' => $shares->where('type', '=', 'gp')->count()
         );
 		return View::make('admin.home', $data);

@@ -7,12 +7,12 @@
   border-radius: 5px;
   .form-input {
     display: block;
-    margin: 10px 0px;
+    margin: 10px 0;
     text-align: center;
     input {
       width: 300px;
       height: 21px;
-      margin: 12px 0px;
+      margin: 12px 0;
       display: block;
     }
     label {
@@ -26,7 +26,7 @@
       width: 150px;
       height: 36px;
       background: #000;
-      border: 0px none;
+      border: 0 none;
       color: #fff;
     }
   }
@@ -136,11 +136,11 @@
             .btn {
                 display: block;
                 cursor: pointer;
-                margin: 0px auto;
+                margin: 0 auto;
                 width: 150px;
                 height: 36px;
                 background: #000;
-                border: 0px none;
+                border: 0 none;
                 color: #fff;
             }
         }
@@ -159,7 +159,7 @@
 }
 .barhead {
     display: block;
-    margin: 20px 0px;
+    margin: 20px 0;
     font-weight: normal;
     font-size: 23px;
 }
@@ -167,4 +167,23 @@
     background-color: white;
     width: 960px;
     height: 400px
+}
+.legends {
+    margin: 30px 0;
+    .fb-legend {
+        border-left: 20px solid #3B5998;
+        padding: 0 10px; 
+    }
+    .tw-legend {
+        border-left: 20px solid #55ACEE;
+        padding: 0 10px;         
+    }
+    .ln-legend {
+        border-left: 20px solid #313335;
+        padding: 0 10px;               
+    }
+    .gp-legend {
+        border-left: 20px solid #D34836;
+        padding: 0 10px;           
+    }
 }

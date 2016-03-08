@@ -23,5 +23,35 @@ class UsersController extends Controller
 		return View::make('admin.users.list', ['users' => $users]);
 	}
 	
+	public function add()
+	{
+	    return View::make('admin.users.add');
+	}
 	
+	public function edit($uid)
+	{
+	    $users = User::find($uid);
+		return View::make('user.edit', [ 'user' => $users ]);
+	}
+	
+    public function update($uid)
+    {
+        $user = User::find($uid);
+		$user->name = Input::get('name');
+		$user->email = Input::get('email');
+		$user->password = Hash::make(Input::get('password'));
+		$user->save();
+		return Redirect::to('/users');
+	}
+	
+	public function store()
+	{
+		$user = new User;
+		$user->username = Input::get('username');
+		$user->name = Input::get('name');
+		$user->email = Input::get('email');
+		$user->password = Hash::make(Input::get('password'));
+		$user->save();
+		return Redirect::to('/users');
+	}
 }

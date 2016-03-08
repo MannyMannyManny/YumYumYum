@@ -15,8 +15,6 @@ class CreateSharesTable extends Migration
         Schema::create('shares', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type',2);
-            $table->string('ip');
-            $table->string('browser');
             $table->dateTime('stated');
         });
     }

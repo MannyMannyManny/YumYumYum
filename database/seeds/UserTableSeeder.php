@@ -15,6 +15,7 @@ class UserTableSeeder extends Seeder
             'username' => 'admin',
             'password' => Hash::make('admin'),
             'name' => 'John Black',
+            'email' => 'admin@admin.io',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime()
         ]);

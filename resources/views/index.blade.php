@@ -18,19 +18,19 @@
         <p class="share">
             <div id="tw" class="share-btn">
                 <span class="icon-tw"></span>
-                <span class="count">0</span>
+                <span class="count">{!! $tw !!}</span>
             </div>
             <div id="fb" class="share-btn">
                 <span class="icon-fb"></span>
-                <span class="count"><?php echo $fb; ?></span>
+                <span class="count">{!! $fb !!}</span>
             </div>
             <div id="gp" class="share-btn">
                 <span class="icon-gp"></span>
-                <span class="count">0</span>
+                <span class="count">{!! $gp !!}</span>
             </div>
             <div id="ln" class="share-btn">
                 <span class="icon-in"></span>
-                <span class="count">0</span>
+                <span class="count">{!! $ln !!}</span>
             </div>
         </p>
     </article>

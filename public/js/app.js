@@ -73,7 +73,7 @@ function popup(url, title, w, h) {
                   jQuery.post("/stats", {type: "fb"})
                       .done(function (data) {
                         if (data.status == 'OK') {
-                          jQuery('.fb .count').html(parseInt(data.count));
+                          jQuery('#fb .count').html(parseInt(data.count));
                         }
                       });
                 }
@@ -90,7 +90,7 @@ function popup(url, title, w, h) {
           jQuery.post("/stats", {type: "tw"})
               .done(function (data) {
                 if (data.status == 'OK') {
-                  jQuery('.tw .count').html(parseInt(data.count));
+                  jQuery('#tw .count').html(parseInt(data.count));
                 }
               });
         break;
@@ -100,7 +100,7 @@ function popup(url, title, w, h) {
           jQuery.post("/stats", {type: "gp"})
               .done(function (data) {
                 if (data.status == 'OK') {
-                  jQuery('.gp .count').html(parseInt(data.count));
+                  jQuery('#gp .count').html(parseInt(data.count));
                 }
               });
         break;
@@ -110,7 +110,7 @@ function popup(url, title, w, h) {
           jQuery.post("/stats", {type: "ln"})
               .done(function (data) {
                 if (data.status == 'OK') {
-                  jQuery('.ln .count').html(parseInt(data.count));
+                  jQuery('#ln .count').html(parseInt(data.count));
                 }
               });
         break;

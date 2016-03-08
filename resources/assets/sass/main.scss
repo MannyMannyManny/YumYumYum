@@ -1,0 +1,118 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,700);
+@import url('font.css');
+
+$ubuntu-font: 'Ubuntu', serif;
+
+//$large-screen:
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+body {
+  font-family: $ubuntu-font;
+  font-weight: 400;
+}
+
+.col-0 {
+  width:100%;
+}
+
+.header {
+  height:50px;
+  background: #333539;
+  .logo {
+    display: block;
+    margin: 0px auto;
+    line-height: 50px;
+    vertical-align: middle;
+    padding-top: 17px;
+  }
+}
+
+article {
+  max-width: 700px;
+  margin: 0 auto;
+  h1 {
+    color: #333333;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    letter-spacing: -0.025em;
+    padding: 73px 0 46px 0;
+  }
+  p {
+    color: #333333;
+    line-height: 30px;
+    padding-top: 30px;
+    &:first-of-type {
+      padding: 0;
+    }
+    &.share {
+      padding: 30px 0;
+    }
+  }
+  a {
+    color: #2b94e1;
+    &:visited {
+      color: #2b94e1;
+    }
+  }
+  .share-btn {
+    width: 73px;
+    height: 42px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 20px;
+    display: inline-block;
+    position:relative;
+    &:first-child {
+      margin: 0;
+    }
+  }
+  #fb {
+    background: #3b5998;
+  }
+  #tw {
+    background: #2bafeb;
+  }
+  #ln {
+    background: #1a7ab2;
+  }
+  #gp {
+    background: #e14b3f;
+  }
+  .count {
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    line-height: 42px;
+    font-size: 16px;
+    font-weight: 200;
+  }
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "social";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  padding: 0 12px;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tw:before { content: '\e801'; font-size: 23px; color: white; line-height: 42px;}
+.icon-fb:before { content: '\e802'; font-size: 23px; color: white; line-height: 42px;}
+.icon-gp:before { content: '\e803'; font-size: 23px; color: white; line-height: 42px;}
+.icon-in:before { content: '\e804'; font-size: 23px; color: white; line-height: 42px;}

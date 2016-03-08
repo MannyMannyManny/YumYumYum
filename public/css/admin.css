@@ -1,0 +1,45 @@
+.login-form {
+  display: block;
+  margin: 100px auto;
+  border: 1px solid #d9d9d9;
+  width: 300px;
+  padding: 30px;
+  border-radius: 5px; }
+  .login-form .form-input {
+    display: block;
+    margin: 10px 0px;
+    text-align: center; }
+    .login-form .form-input input {
+      width: 300px;
+      height: 21px;
+      margin: 12px 0px;
+      display: block; }
+    .login-form .form-input label {
+      font-size: 18px;
+      display: block;
+      color: #d9d9d9; }
+    .login-form .form-input button {
+      display: block;
+      margin: 0px auto;
+      width: 150px;
+      height: 36px;
+      background: #000;
+      border: 0px none;
+      color: #fff; }
+  .login-form .warning {
+    background: #f9adad;
+    width: 282px;
+    padding: 10px;
+    display: block; }
+
+#account_block {
+  color: #fff;
+  float: right; }
+  #account_block .account_info {
+    display: block;
+    font-weight: 300; }
+  #account_block .logout_link {
+    display: block;
+    font-weight: 200; }
+
+/*# sourceMappingURL=admin.css.map */

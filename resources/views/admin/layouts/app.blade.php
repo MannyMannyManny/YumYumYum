@@ -28,8 +28,8 @@
     <div class="wrapper">
         <div class="horizontal-menu">
           <ul>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Users</a></li>
+                <li><a href="/admin/settings" class="{{ Ekko::isActiveRoute('settings') }}">Settings</a></li>
+                <li><a href="/admin/users" class="{{ Ekko::areActiveRoutes(['admin.users.index', 'admin.users.store', 'admin.users.create', 'admin.users.update', 'admin.users.show', 'admin.users.destroy', 'admin.users.edit']) }}">Users</a></li>
             </ul>
         </div>
     @yield('content')

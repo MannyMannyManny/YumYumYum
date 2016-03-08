@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost/semrush/public/',
+    'url' => 'http://mannymanny.com/',
 
     /*
     |--------------------------------------------------------------------------
@@ -156,6 +156,11 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
+        /*
+         * Providers for mannymanny
+         */
+        Laravelista\Ekko\EkkoServiceProvider::class,
 
     ],
 
@@ -182,6 +187,7 @@ return [
         'Cookie'    => Illuminate\Support\Facades\Cookie::class,
         'Crypt'     => Illuminate\Support\Facades\Crypt::class,
         'DB'        => Illuminate\Support\Facades\DB::class,
+        'Ekko'      => Laravelista\Ekko\Facades\Ekko::class,
         'Eloquent'  => Illuminate\Database\Eloquent\Model::class,
         'Event'     => Illuminate\Support\Facades\Event::class,
         'File'      => Illuminate\Support\Facades\File::class,

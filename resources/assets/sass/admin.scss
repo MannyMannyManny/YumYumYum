@@ -69,6 +69,11 @@
                     border: 1px solid #5A5A5A;
                 }
             }
+            .active {
+                color: #fff;
+                border: 1px solid #000;
+                background: #000;
+            }
         }
     }
     table {
@@ -87,6 +92,20 @@
         background: #f9adad;
         padding: 10px;
         display: block;
+    }
+    .btn {
+        display: block;
+        cursor: pointer;
+        margin: 10px 0;
+        width: 150px;
+        height: 36px;
+        background: #000;
+        border: 0px none;
+        color: #fff;
+        line-height: 36px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 15px;
     }
     .edit-form {
         .form-input {

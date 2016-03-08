@@ -25,11 +25,16 @@
                     <td>{!! $user->email !!}</td>
                     <td>{!! $user->created_at !!}</td>
                     <td>{!! $user->updated_at !!}</td>
-                    <td><a class="btn" href="/admin/users/{!! $user->id !!}/edit">Edit</a><a class="btn" href="/admin/users/{!! $user->id !!}/delete">Delete</a></td>
+                    <td>
+                        <a class="btn" href="/admin/users/{!! $user->id !!}/edit">Edit</a>
+                        {!! Form::open(['url' => '/admin/users/' . $user->id, 'method' => 'DELETE']) !!}
+                        {!! Form::submit('Delete', ['class' => 'btn']) !!}
+                        {!! Form::close() !!}
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
 
         </table>
-
+        <a class="btn" href="/admin/users/create">Create New</a>
 @endsection

@@ -22,17 +22,25 @@
     <?php
     }
     ?>
-    {!! HTML::image('image/logo.png', 'Semrush logo', array('class' => 'logo')); !!}
+    <a href="/admin/">
+        {!! HTML::image('image/logo.png', 'Semrush logo', array('class' => 'logo')); !!}
+    </a>
 </div>
 <div class="container">
     <div class="wrapper">
+        <?php
+        if(Auth::check()) {
+        ?>
         <div class="horizontal-menu">
           <ul>
-                <li><a href="/admin/" class="{{ Ekko::isActiveRoute('settings') }}">Dashboard</a></li>
+                <li><a href="/admin/" class="{{ Ekko::areActiveRoutes(['admin.dashboard.index']) }}">Dashboard</a></li>
                 <li><a href="/admin/settings" class="{{ Ekko::isActiveRoute('settings') }}">Settings</a></li>
                 <li><a href="/admin/users" class="{{ Ekko::areActiveRoutes(['admin.users.index', 'admin.users.store', 'admin.users.create', 'admin.users.update', 'admin.users.show', 'admin.users.destroy', 'admin.users.edit']) }}">Users</a></li>
             </ul>
         </div>
+        <?php
+        }
+        ?>
     @yield('content')
     </div>
 </div>    

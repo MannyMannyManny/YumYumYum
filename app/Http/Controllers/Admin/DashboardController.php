@@ -57,7 +57,7 @@ class DashboardController extends Controller
 	        $s++;
 	    }
         $o = 0;
-        foreach($last as $k=>$item) {
+        foreach(array_reverse($last,true) as $k=>$item) {
             $json['label'][] = $k;
             $json['values'][$o]['label'] = $k;
             foreach($item as $provider) {

@@ -2,8 +2,6 @@
 
 @section('content')
 
-<div class='col-lg-4 col-lg-offset-4'>
-
     @if ($errors->has())
         @foreach ($errors->all() as $error)
             <div class='warning'>
@@ -46,7 +44,5 @@
     </div>
 
     {!! Form::close() !!}
-
-</div>
 
 @endsection

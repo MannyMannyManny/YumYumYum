@@ -26,10 +26,13 @@ Route::group(['namespace'=>'Admin', 'prefix' => 'admin', 'middleware' => 'web'],
 {
     Route::resource('/dashboard', 'DashboardController');
     Route::resource('/users', 'UsersController');
+    //As used for horizontal menu
+    Route::get('/settings', array('as'=>'settings', 'uses'=>'SettingsController@index'));
+    Route::post('/settings', 'SettingsController@saveSetting');
     Route::controller('/','LoginController');
-    Route::get('/login', array('as' => 'login', 'uses' => 'LoginController@getLogin'));
-    Route::post('/login', array('as' => 'login', 'uses' =>'LoginController@postLogin'));
-    Route::get('/logout', array('as' => 'logout', 'uses' =>'LoginController@getLogout'));
+    Route::get('/login', 'LoginController@getLogin');
+    Route::post('/login', 'LoginController@postLogin');
+    Route::get('/logout', 'LoginController@getLogout');
 });
 
 Route::controllers([
@@ -38,6 +41,6 @@ Route::controllers([
 ]);
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/', array('as' => 'home', 'uses' =>'HomeController@indexPage'));
-    Route::post('/stats', array('as' => 'stat.save', 'uses' =>'StatController@saveStats'));
+    Route::get('/', 'HomeController@indexPage');
+    Route::post('/stats', 'StatController@saveStats');
 });

@@ -37,7 +37,7 @@ class LoginController extends Controller
 
 	public function getLogin()
 	{
-		return Redirect::to('/admin/dashboard');
+	    return View::make('login.index');
 	}
 
 	public function getLogout()

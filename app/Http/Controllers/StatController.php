@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon;
 use Response;
+use Input;
 use App\Quotation;
 use App\Shares;
 use App\Http\Requests;

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use View;
+use Input;
+use Hash;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -23,15 +26,15 @@ class UsersController extends Controller
 		return View::make('admin.users.list', ['users' => $users]);
 	}
 	
-	public function add()
+	public function create()
 	{
-	    return View::make('admin.users.add');
+	    return View::make('admin.users.create');
 	}
 	
 	public function edit($uid)
 	{
 	    $users = User::find($uid);
-		return View::make('user.edit', [ 'user' => $users ]);
+		return View::make('admin.users.edit', [ 'user' => $users ]);
 	}
 	
     public function update($uid)
@@ -41,7 +44,7 @@ class UsersController extends Controller
 		$user->email = Input::get('email');
 		$user->password = Hash::make(Input::get('password'));
 		$user->save();
-		return Redirect::to('/users');
+		return Redirect::to('/admin/users');
 	}
 	
 	public function store()
@@ -52,6 +55,6 @@ class UsersController extends Controller
 		$user->email = Input::get('email');
 		$user->password = Hash::make(Input::get('password'));
 		$user->save();
-		return Redirect::to('/users');
+		return Redirect::to('/admin/users');
 	}
 }

@@ -83,4 +83,37 @@
             padding: 5px;
         }
     }
+    .warning {
+        background: #f9adad;
+        padding: 10px;
+        display: block;
+    }
+    .edit-form {
+        .form-input {
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            input {
+                width: 300px;
+                height: 21px;
+                margin: 12px auto;
+                display: block;
+            }
+            label {
+                font-size: 18px;
+                display: block;
+                color: #d9d9d9;
+            }
+            .btn {
+                display: block;
+                cursor: pointer;
+                margin: 0px auto;
+                width: 150px;
+                height: 36px;
+                background: #000;
+                border: 0px none;
+                color: #fff;
+            }
+        }
+    }
 }

@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="login-form">
-    <form role="form" method="POST" action="{{ url('/admin/login') }}">
+    <form role="form" method="POST" action="{!! url('/admin/login') !!}">
         {!! csrf_field() !!}
         <div class="form-input">
             <label for="username">Username</label>
-            <input type="text" name="username" value="{{ old('username') }}">
+            <input type="text" name="username" value="{!! old('username') !!}">
         </div>
 
         <div class="form-input">
@@ -21,7 +21,7 @@
         @endif
 
         <div class="form-input">
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit">Login</button>
         </div>
 
     </form>

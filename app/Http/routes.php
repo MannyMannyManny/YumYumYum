@@ -25,6 +25,7 @@
 Route::group(['namespace'=>'Admin', 'prefix' => 'admin', 'middleware' => 'web'], function()
 {
     Route::resource('/dashboard', 'DashboardController');
+    Route::resource('/users', 'UsersController');
     Route::controller('/','LoginController');
     Route::get('/login', array('as' => 'login', 'uses' => 'LoginController@getLogin'));
     Route::post('/login', array('as' => 'login', 'uses' =>'LoginController@postLogin'));

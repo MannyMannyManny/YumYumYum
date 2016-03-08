@@ -9,6 +9,7 @@ use View;
 use Input;
 use Hash;
 use Redirect;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -39,52 +40,67 @@ class UsersController extends Controller
 	
     public function update($uid)
     {
-        $user = User::find($uid);
-        if((!empty(Input::get('name')))&&(!empty(Input::get('email')))) {
-		    $user->name = Input::get('name');
-		    $user->email = Input::get('email');
-	        if((!empty(Input::get('password')))&&(Input::get('password')==Input::get('password_confirmation'))) {
-		        $user->password = Hash::make(Input::get('password'));
-	        } else if((!empty(Input::get('password')))&&(Input::get('password')!=Input::get('password_confirmation'))) {
-	            return Redirect::back()
-		    	    ->withInput()
-		    	    ->withErrors('Entered password didnt match confirmation');
-            }
-            $user->save();
-		    return Redirect::to('/admin/users');
-        } else {
- 	        return Redirect::back()
-			    ->withInput()
-			    ->withErrors('Empty username or email :C');           
+        $validate = array(
+            'name'             => 'required',
+            'email'            => 'required|email'
+        );
+        if(!empty(Input::get('password'))) {
+            $validate['password'] = 'required';   
+            $validate['password_confirmation'] = 'required|same:password';  
         }
+        $validator = Validator::make(Input::all(), $validate);
+
+        if ($validator->fails()) {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors($validator);
+        }
+        
+        $user = User::find($uid);
+		$user->name = Input::get('name');
+		$user->email = Input::get('email');
+		if(!empty(Input::get('password'))) {
+            $user->password = Hash::make(Input::get('password'));
+        }
+        $user->save();
+        return Redirect::to('/admin/users');
 	}
 	
 	public function store()
 	{
-	    if((!empty(Input::get('name')))&&(!empty(Input::get('email')))&&(!empty(Input::get('password')))&&(!empty(Input::get('password_confirmation')))) {
-	        if(Input::get('password')==Input::get('password_confirmation')) {
-		        $user = new User;
-		        $user->username = Input::get('username');
-		        $user->name = Input::get('name');
-                $user->email = Input::get('email');
-		        $user->password = Hash::make(Input::get('password'));
-		        $user->save();
-		        return Redirect::to('/admin/users');
-	        } else {
- 	            return Redirect::back()
-			        ->withInput()
-			        ->withErrors('Entered password didnt match confirmation');	            
-	        }
-        } else {
- 	        return Redirect::back()
-			    ->withInput()
-			    ->withErrors('Empty username, email, password or its confirmation :D');           
-        }
+        $validate = array(
+            'name'             => 'required',
+            'email'            => 'required|email|unique:users',
+            'username'            => 'required|unique:users',
+            'password'         => 'required',
+            'password_confirmation' => 'required|same:password'
+        );
+
+        $validator = Validator::make(Input::all(), $validate);
+
+        if ($validator->fails()) {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors($validator);
+        }    
+		$user = new User;
+		$user->username = Input::get('username');
+		$user->name = Input::get('name');
+        $user->email = Input::get('email');
+		$user->password = Hash::make(Input::get('password'));
+		$user->save();
+		return Redirect::to('/admin/users');
 	}
 	
 	public function destroy($uid)
 	{
-		User::destroy($uid);
-		return Redirect::to('/admin/users');
+	    if(User::count() > 1) {
+		    User::destroy($uid);
+		    return Redirect::to('/admin/users');
+	    } else {
+		   return Redirect::back()
+                ->withInput()
+                ->withErrors('You cant delete all admins :C');        
+	    }
 	}
 }

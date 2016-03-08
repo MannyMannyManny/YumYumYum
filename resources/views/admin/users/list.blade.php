@@ -1,7 +1,14 @@
 @extends('admin.layouts.app')
 
 @section('content')
-
+    @if ($errors->has())
+        @foreach ($errors->all() as $error)
+            <div class='warning'>
+                {!! $error !!}
+            </div>
+        @endforeach
+    @endif
+    
         <table>
 
             <thead>

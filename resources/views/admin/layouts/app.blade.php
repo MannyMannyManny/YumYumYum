@@ -17,7 +17,7 @@
     ?>
     <div id="account_block">
         <span class="account_info">Logged in as: {!! isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email !!}</span>
-        <span class="logout_link"><a href="#">Logout</a></span>
+        <span class="logout_link"><a href="/admin/logout">Logout</a></span>
     </div>
     <?php
     }

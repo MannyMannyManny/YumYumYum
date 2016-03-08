@@ -39,7 +39,9 @@
 }
 #account_block {
   color: #fff;
-  float: right;
+  margin: 0 20px;
+  position: absolute;
+  right: 0;
   .account_info {
     display: block;
     font-weight: 300;
@@ -47,6 +49,14 @@
   .logout_link {
     display: block;
     font-weight: 200;
+    a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px dotted #fff;
+        &:hover {
+            color: #d9d9d9;
+        }
+    }
   }
 }
 .wrapper {
@@ -135,4 +145,26 @@
             }
         }
     }
+    .total-shares {
+        display: block;
+        font-weight: normal;
+        font-size: 23px;
+    }
+    .shares-detail {
+        display: block;
+        border-bottom: 1px dotted;
+        padding: 8px 0;
+        color: #9F9D9D;
+    }
+}
+.barhead {
+    display: block;
+    margin: 20px 0px;
+    font-weight: normal;
+    font-size: 23px;
+}
+#sharesbar {
+    background-color: white;
+    width: 960px;
+    height: 400px
 }

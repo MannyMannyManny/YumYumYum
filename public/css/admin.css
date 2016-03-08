@@ -34,13 +34,21 @@
 
 #account_block {
   color: #fff;
-  float: right; }
+  margin: 0 20px;
+  position: absolute;
+  right: 0; }
   #account_block .account_info {
     display: block;
     font-weight: 300; }
   #account_block .logout_link {
     display: block;
     font-weight: 200; }
+    #account_block .logout_link a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px dotted #fff; }
+      #account_block .logout_link a:hover {
+        color: #d9d9d9; }
 
 .wrapper {
   width: 960px;
@@ -112,5 +120,25 @@
       background: #000;
       border: 0px none;
       color: #fff; }
+  .wrapper .total-shares {
+    display: block;
+    font-weight: normal;
+    font-size: 23px; }
+  .wrapper .shares-detail {
+    display: block;
+    border-bottom: 1px dotted;
+    padding: 8px 0;
+    color: #9F9D9D; }
+
+.barhead {
+  display: block;
+  margin: 20px 0px;
+  font-weight: normal;
+  font-size: 23px; }
+
+#sharesbar {
+  background-color: white;
+  width: 960px;
+  height: 400px; }
 
 /*# sourceMappingURL=admin.css.map */

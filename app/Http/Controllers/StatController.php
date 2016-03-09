@@ -15,7 +15,7 @@ class StatController extends Controller
     public function saveStats ()
     {
         if (Input::has('type')) {
-            $date = Carbon::now();
+            $date = Carbon::now('Europe/Moscow');
             $share = new Shares;
             $share->type = Input::get('type');
             $share->stated = $date;

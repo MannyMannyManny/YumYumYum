@@ -26,7 +26,7 @@ class DashboardController extends Controller
 	 */
 	public function index()
 	{
-	    $dt = Carbon::parse(Carbon::now());
+	    $dt = Carbon::parse(Carbon::now('Europe/Moscow'));
 	    //Shares
 	    $shares = new Shares;
 	    $last = array();
@@ -69,7 +69,7 @@ class DashboardController extends Controller
         $data = array(
             'gg' => json_encode($json),
             'total_shares' => $shares->count(),
-            'current_time' => Carbon::now(),
+            'current_time' => Carbon::now('Europe/Moscow'),
             'fb_shares' => $shares->where('type', '=', 'fb')->count(),
             'tw_shares' => $shares->where('type', '=', 'tw')->count(),
             'ln_shares' => $shares->where('type', '=', 'ln')->count(),
